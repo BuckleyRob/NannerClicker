@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var playerPoints = 0;
+			var nannerTrees = 0;
+			function getPoint(amount){
+				playerPoints += amount;
+				document.getElementById("points").innerHTML= "Nanners: " + playerPoints;
+				document.getElementById("buyTreeButton").disabled = playerPoints < 25;
+			}
+			function buyTree(){
+				getPoint(-25);
+				nannerTrees += 1;
+				document.getElementById("trees").innerHTML= "Nanner Trees: " + nannerTrees;
+			}
+			window.setInterval(function(){
+				getPoint(nannerTrees * 2);
+				
+			},1000);
+		</script>
+	</head>
+	<body>
+	<a id="points">2</a></br>
+	<a id="trees">Nanner Trees: 0</a></br>
+	<button id="theButton" onclick="getPoint(1)" style="height:100px;width:100px;background:url(Nanner.png);background-size:100%"></button></br>
+	<button id="buyTreeButton" onclick="buyTree()" style="height:100px;width:100px">Buy Tree!(25 Nanners Each)</button></br>
+	</body>
+</html>
